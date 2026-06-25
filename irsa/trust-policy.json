@@ -1,4 +1,18 @@
 {
-  "Version":"2012-10-17",
-  "Statement":[]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::885412329878:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/7A491535A2F3BC8AF66B086C54699E4E"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "oidc.eks.us-east-1.amazonaws.com/id/7A491535A2F3BC8AF66B086C54699E4E:sub": "system:serviceaccount:default:dynamodb-sa",
+          "oidc.eks.us-east-1.amazonaws.com/id/7A491535A2F3BC8AF66B086C54699E4E:aud": "sts.amazonaws.com"
+        }
+      }
+    }
+  ]
 }
